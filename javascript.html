@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Java Script</title>
+  <script>
+    let date = new Date();
+    let year = date.getFullYear();
+    let born = "เกิดเมื่อ"
+    let get_scholoar_with_help_grade = "ได้ทุนการศึกษา เนื่องจากเกรดเฉลี่ยถึงเกณฑ์และยังช่วยงานภาควิชาด้วย"
+    let get_scholar_by_grade = "ได้ทุนการศึกษา เนื่องจากเกรดเฉลี่ยถึงเกณฑ์"
+    let not_get_scholar = "ไม่ได้ทุนการศึกษา เนื่องจากเกรดเฉลี่ยไม่ถึง และยังไม่ได้ช่วยงานภาควิชา"
+    let year1_not_get_scholar = "ไม่ได้ทุนการศึกษา เนื่องจากเกรดเฉลี่ยไม่ถึง"    
+    let year_of_student = "ชั้นปี"
+    let student = [
+      // help == true and grade > 2.75 and year > 1 
+      {
+      fullname: 'นายตั้งใจ เรียนมาก',
+      age: 18,
+      year: 1,
+      gpa: 3.40,
+      help: true
+      },
+      // grade >= 3.2 and year 1 
+      {
+      fullname: 'นายส่งงาน ตลอดมา',
+      age: 19,
+      year: 2,
+      gpa: 3.20,
+      help: false
+      },
+      // grade  > 2.75 and year > 1 and help = true
+      {
+      fullname: 'นางสาวใส่ใจ ดีงาม',
+      age: 20,
+      year: 3,
+      gpa: 2.90,
+      help: true
+      },
+      // year 1 but grade > 3.2 so can't get scolar
+      {
+      fullname: 'A',
+      age: 20,
+      year: 1,
+      gpa: 3.90,
+      help: true
+      },
+      //can't get scolar because grade < 3.2 and help == false
+      {
+      fullname: 'B',
+      age: 20,
+      year: 4,
+      gpa: 2.90,
+      help: false
+      },
+      {
+      fullname: 'C',
+      age: 24,
+      year: 1,
+      gpa: 2.90,
+      help: true
+      },
+      {
+      fullname: 'D',
+      age: 20,
+      year: 5,
+      gpa: 2.90,
+      help: false
+      }]
+    for(let i = 0; i < student.length;i++)
+    {
+      
+      if((student[i].gpa >= 2.75 && student[i].help === true) && student[i].year > 1){
+          console.log(student[i].fullname,born,((parseInt(year) - 1) - student[i].age) + 543, get_scholoar_with_help_grade)
+        }
+      else if(student[i].gpa >= 3.2){
+        console.log(student[i].fullname,born,((parseInt(year) - 1) - student[i].age) + 543,get_scholar_by_grade)
+      }
+      else if(student[i].year == 1 && student[i].year < 3.2 && student[i].help === true){
+          console.log(student[i].fullname,born,((parseInt(year) - 1) - student[i].age) + 543,year1_not_get_scholar)
+        }
+      else{
+          console.log(student[i].fullname,born,((parseInt(year) - 1) - student[i].age) + 543, not_get_scholar)
+        }
+      }
+    console.log("\n")
+   student.sort((a, b) => {
+    return a.year - b.year
+    });    
+
+    let check = 0;
+    for(let i = 0; i< student.length;i++){
+      if(student[i].year != check){
+        console.log(year_of_student,student[i].year)
+        check = student[i].year
+      }
+      if((student[i].gpa >= 2.75 && student[i].help === true) && student[i].year > 1){
+          console.log(student[i].fullname,born, get_scholoar_with_help_grade)
+        }
+      else if(student[i].gpa >= 3.2){
+        console.log(student[i].fullname,born,get_scholar_by_grade)
+      }
+        else if(student[i].year == 1 && student[i].year < 3.2 && student[i].help === true){
+          console.log(student[i].fullname,born,year1_not_get_scholar)
+        }
+      
+      else{
+          console.log(student[i].fullname,born, not_get_scholar)
+        }
+    }
+
+  </script>
+</head>
+
+<body>
+</body>
+</html>
